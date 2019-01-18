@@ -4,15 +4,11 @@ require 'optim'
 
 —- modify the path 
 
-prototxt = '/home/fanq15/convert_caffe_to_pytorch/deploy_vgg16.prototxt'
-binary = '/home/fanq15/pconvert_caffe_to_pytorch/vgg16.caffemodel'
+prototxt = 'VGG_ILSVRC_19_layers_deploy.prototxt'
+binary = 'VGG_ILSVRC_19_layers.caffemodel'
 
 net = loadcaffe.load(prototxt, binary, 'cudnn')
 net = net:float() —- essential reference https://github.com/clcarwin/convert_torch_to_pytorch/issues/8
 print(net)
 
-torch.save('/home/fanq15/convert_caffe_to_pytorch/vgg16_torch.t7', net)
-
-
-
-
+torch.save('vgg16_torch.t7', net)
